@@ -329,10 +329,15 @@ while true
 	end	 
 
 
-	if p1_game_score == 3
+	if p1_game_score == 3 && p2_game_score == 0
 	  puts "Game, Set and Match! P1 has won the match!" 
-	elsif p2_game_score == 3
+	elsif p2_game_score == 3 && p1_game_score == 0
 	  puts "Game, Set and Match! P2 has won the match!" 
-	end     	
+	end 
+
+	if p1_game_score == 5 && p2_game_score > 0
+	  puts "Game, Set and Match! P1 has won the match!"
+	elsif p2_game_score == 5 && p1_game_score > 0
+	  puts "Game, Set and Match! P2 has won the match!"      	
   
 end      
