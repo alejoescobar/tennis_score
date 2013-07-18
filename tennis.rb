@@ -212,7 +212,7 @@ while true
 
 	if p1_set == 6 && p2_set == 6
 	  puts "Tie breaker"
-	  while p1_tbreak < 7 && p2_tbreak < 7
+	  while p1_tbreak < 6 && p2_tbreak < 6
 	  	puts "Who wins the tie breaker point?"
 	  	tbreak = gets.chomp
 	    if tbreak == "p1"
@@ -224,6 +224,59 @@ while true
       end
     end
   end
+
+  if p1_tbreak == 6 && p2_tbreak < 5
+  	while p1_tbreak < 7 && p2_tbreak < 6
+  		puts "Wha will win the tie breaker point?"
+  		bwin = gets.chomp
+  		if bwin == "p1"
+  			p1_tbreak += 1
+  			puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+  		elsif bwin == "p2"
+  		  p2_tbreak += 1
+  		  puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+  		end  	
+    end
+  elsif p2_tbreak == 6 && p1_tbreak < 5
+    while p2_tbreak < 7 && p1_tbreak < 6
+    	puts "Wha will win the tie breaker point?"
+  		bwin = gets.chomp
+  		if bwin == "p1"
+  			p1_tbreak += 1
+  			puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+  		elsif bwin == "p2"
+  		  p2_tbreak += 1
+  		  puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+  		end
+  	end	   
+  end  
+
+  if p1_tbreak == 6 && p2_tbreak == 5
+   	while p1_tbreak < 7 && p2_tbreak < 6
+   	  puts "Whoo wins the tie breaker point"
+   	  twin = gets.chomp
+   		if twin == "p1"
+   			p1_tbreak += 1
+   			puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+      elsif twin == "p2"
+      	p2_tbreak += 1
+      	puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+      end	
+    end
+  elsif p2_tbreak == 6 && p1_tbreak == 5
+    while p2_tbreak < 7 && p1_tbreak < 6
+      puts "Whoo wins the tie breaker point"
+      twin = gets.chomp
+      if twin == "p1"
+   			p1_tbreak += 1
+   			puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+      elsif twin == "p2"
+      	p2_tbreak += 1
+      	puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+      end
+    end
+  end  
+      	
 
   if p1_tbreak == 7 && p2_tbreak < 6
     puts "p1 has won the tiebreak and the set!"
@@ -241,7 +294,40 @@ while true
 		p2_set = 0
 		p1_tbreak = 0
 		p2_tbreak = 0
+	end
+
+	if p1_tbreak == 6 && p2_tbreak == 6
+		 while (p1_tbreak != (p2_tbreak + 2)) && (p2_tbreak != (p1_tbreak + 2)) 
+	    puts "Who will win the tie breaker point?"
+	    tbwin = gets.chomp
+	    if tbwin == "p1"
+	    	p1_tbreak += 1
+	    	puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+	  	elsif tbwin == "p2"
+	    	p2_tbreak += 1
+	    	puts "p1 #{p1_tbreak} | p2 #{p2_tbreak}"
+	  	end
+		end
 	end	
+
+	if (p1_tbreak > 5 && p2_tbreak > 5) && ((p2_tbreak + 2) == p1_tbreak)	 
+		 puts "p1 has won the tie breaker and the set!"
+		 p1_game_score += 1
+		 puts "set score: p1 #{p1_game_score} | p2 #{p2_game_score}"
+     p1_set = 0
+		 p2_set = 0
+		 p1_tbreak = 0
+		 p2_tbreak = 0
+	elsif (p1_tbreak > 5 && p2_tbreak > 5) && ((p1_tbreak += 2) == p2_tbreak)	 
+		 puts "p2 has won the tie breaker and the set!"	
+		 p2_game_score += 1
+		 puts "set score: p1 #{p1_game_score} | p2 #{p2_game_score}"
+     p1_set = 0
+		 p2_set = 0
+		 p1_tbreak = 0
+		 p2_tbreak = 0
+	end	 
+
 
 	if p1_game_score == 3
 	  puts "Game, Set and Match! P1 has won the match!" 
